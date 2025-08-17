@@ -1,0 +1,26 @@
+:root {
+    --primary-color: #926eae;
+    --secondary-color: #4D3949;
+    --tertiary-color: #cda4de;
+    --tertiary-color-opacity: #cda4decc;
+    --quaternary-color: #77dd77;
+    --text-color: #352732;
+    --text-color-opacity: #35273299;
+    --text-color-light: #4D3949;
+    --text-color-hover: #4D3949;
+    --default-text-size: 1.2rem;
+}
+
+* {
+    font-family: 'LC-Chalk', sans-serif;
+    font-size: var(--default-text-size);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'LC-Chalk';
+    src: url('content/fonts/Lc\ Chalk.ttf') format('truetype');
+    font-style: normal;
+}

@@ -1,0 +1,92 @@
+# 80
+server {
+    listen 80;
+    server_name supergnome.space www.supergnome.space;
+
+    return 301 https://$host$request_uri;
+}
+
+# 443
+server {
+    listen 443 ssl;
+    server_name supergnome.space www.supergnome.space;
+
+    root /var/www/supergnome.space;
+    index index.html;
+
+    error_page 403 /403.html;
+    error_page 404 /404.html;
+
+    location / {
+        try_files $uri $uri.html $uri/ @html =404;
+    }
+
+    location /forbidden {
+        return 403;
+    }
+
+    location /not-found {
+        return 404;
+    }
+
+    # location ~* \.(php|cpp|js|c|cs|py|mp3|mp4|avi|jpg|jpeg|gif|png|svg|ico|eot|otf|ttf|woff|woff2)$ {
+    #     return 301 /forbidden;
+    # }
+
+    location /content/ {
+        autoindex on;
+        autoindex_format html;
+        add_before_body /autoindex-before.html;
+        add_after_body /autoindex-after.html;
+
+        try_files $uri $uri/ /not-found;
+    }
+
+    location /olivetin/ {
+        return 301 https://olivetin.supergnome.space/;
+    }
+
+    access_log /var/log/nginx/supergnome.space.access.log;
+    error_log /var/log/nginx/supergnome.space.error.log;
+
+    ssl_certificate /etc/letsencrypt/live/supergnome.space/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/supergnome.space/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+}
+
+# olivetin
+server {
+    listen 443 ssl;
+    server_name olivetin.supergnome.space;
+
+    location / {
+        proxy_pass http://localhost:1337;
+        proxy_redirect http://localhost:1337/ http://localhost/OliveTin/;
+    }
+
+    location /websocket {
+        proxy_set_header Upgrade "websocket";
+        proxy_set_header Connection "upgrade";
+        proxy_pass http://localhost:1337/websocket;
+    }
+
+    access_log /var/log/nginx/olivetin.supergnome.space.access.log;
+    error_log /var/log/nginx/olivetin.supergnome.space.error.log;
+
+    ssl_certificate /etc/letsencrypt/live/olivetin.supergnome.space/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/olivetin.supergnome.space/privkey.pem; # managed by Certbot
+}
+
+# minecraft map
+server {
+    listen 443 ssl;
+    server_name map.supergnome.space;
+
+    location / {
+        proxy_pass http://localhost:8123;
+    }
+
+    ssl_certificate /etc/letsencrypt/live/map.supergnome.space/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/map.supergnome.space/privkey.pem; # managed by Certbot
+}
