@@ -1,1 +1,1 @@
-! Мой сайт по адресу https://supergnome.space !
+*Мой сайт по адресу https://supergnome.space*
