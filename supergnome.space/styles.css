@@ -1,16 +1,16 @@
 /* styles.css */
 :root {
     /* Основные цвета темы */
-    /* --primary-color: #f6c0cb; */ /* Розовый */
-    --primary-color: #9fe2bf; /* Морской зелёный Крайола */
-    --secondary-color: #f8d568; /* Оранжево-жёлтый Крайола */
-    --tertiary-color: #efdecd; /* Миндаль Крайола */
-    --tertiary-color-opacity: #efdecdcc;
-    --quaternary-color: #fff44f; /* Лимонно-жёлтый крайола */
-    --text-color: #16251c; /* Очень тёмный зелёный */
-    --text-color-opacity: #16251c99;
-    --text-color-light: #8a795d; /* Полумрак Крайола */
-    --text-color-hover: #2f4538; /* Зеленый мох */
+    --primary-color: #e6e6fa; /* Лаванда */
+    --secondary-color: #c5d0e6; /* Барвинок */
+    --tertiary-color: #f8f4ff; /* Магнолия */
+    --tertiary-color-opacity: #c5d0e6cc;
+    --quaternary-color: #fae7b5; /* Бананомания */
+    --text-color: #1a162a; /* Тёмный пурпурно-синий */
+    --text-color-opacity: #1a162a99;
+    --text-color-hover: #413d51; /* Серовато-пурпурно-синий */
+    --text-color-light: #837da2; /* Светлый пурпурно-синий */
+    /* */
     --shift-duration: 0.5s;
     --shift-distance: 3px;
     --content-width: 67vw;
@@ -116,7 +116,7 @@ body {
 .watermark {
     display: flex;
     font-size: calc(1.5 * var(--default-text-size));
-    color: var(--text-color-light);
+    color: var(--text-color-hover);
     text-align: center;
     opacity: 0.8;
 }
@@ -141,7 +141,7 @@ button {
     font-size: var(--default-text-size);
     font-weight: bold;
     color: var(--text-color);
-    transition: transform var(--shift-duration) ease;
+    transition: all var(--shift-duration) ease;
     padding: 1vh;
     margin-bottom: var(--content-margin-ver);
     border: 0px solid var(--text-color);
@@ -153,6 +153,16 @@ button:hover {
     color: var(--text-color-hover);
     background-color: var(--quaternary-color);
     transform: scale(1.05) rotate(1deg);
+}
+
+.ghbutton {
+    color: #F0F6FC;
+    background-color: #010409;
+}
+
+.ghbutton:hover { 
+    color: #F78166;
+    background-color: #0D1117;
 }
 
 .gallery {
@@ -345,11 +355,11 @@ button:hover {
 }
 
 ::selection {
-    background: var(--primary-color);
+    background: var(--quaternary-color);
     color: var(--text-color-light);
 }
 
 ::-moz-selection {
-    background: var(--primary-color);
+    background: var(--quaternary-color);
     color: var(--text-color-light);
 }
