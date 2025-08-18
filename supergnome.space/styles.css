@@ -40,6 +40,29 @@ body {
     padding-bottom: 24px;
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-color) 50%, var(--secondary-color) 50%, var(--secondary-color) 100%);
     color: var(--text-color);
+    z-index: -1;
+}
+
+.cursor-follower {
+    /* width: 20px;
+    height: 100px; */
+    font-weight: bold;
+    /* background: linear-gradient(
+        to bottom, 
+        var(--primary-color), 
+        var(--quaternary-color)
+    ); */
+    /* border-radius: 10px; */
+    color: var(--primary-color);
+    position: fixed;
+    top: 40vh;
+    right: 15vw;
+    text-align: start;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease;
+    /* box-shadow: 0 4px 8px rgba(0,0,0,0.2); */
+    z-index: 0;
+    user-select: none;
 }
 
 .bigbrain {
