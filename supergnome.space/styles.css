@@ -19,6 +19,7 @@
     --content-margin-ver: 1vh;
     --default-text-size: 1.5rem;
     --modal-anim-duration: 0.25s;
+    --follower-state: visible;
 }
 
 * {
@@ -63,6 +64,7 @@ body {
     /* box-shadow: 0 4px 8px rgba(0,0,0,0.2); */
     z-index: 0;
     user-select: none;
+    visibility: var(--follower-state);
 }
 
 .bigbrain {
@@ -360,6 +362,9 @@ button:hover {
     :root {
         --content-padding-ver: 6vh;
     }
+    :root { 
+        --follower-state: visible;
+    }
 }
 
 @media (max-width: 900px) {
@@ -374,6 +379,9 @@ button:hover {
     }
     :root {
         --content-padding-ver: 8vh;
+    }
+    :root { 
+        --follower-state: hidden;
     }
 }
 
