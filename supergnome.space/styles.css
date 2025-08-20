@@ -4,7 +4,7 @@
     --primary-color: #e6e6fa; /* Лаванда */
     --secondary-color: #c5d0e6; /* Барвинок */
     --tertiary-color: #f8f4ff; /* Магнолия */
-    --tertiary-color-opacity: #c5d0e6cc;
+    --tertiary-color-opacity: #f8f4ffd0;
     --quaternary-color: #f7f21a; /* Цвет детской неожиданности */
     --text-color: #1a162a; /* Тёмный пурпурно-синий */
     --text-color-opacity: #1a162a99;
@@ -41,7 +41,9 @@ body {
     padding-bottom: 24px;
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-color) 50%, var(--secondary-color) 50%, var(--secondary-color) 100%);
     color: var(--text-color);
-    z-index: -1;
+    z-index: -2;
+    animation: fadeIn 2s forwards;
+    opacity: 0;
 }
 
 .cursor-follower {
@@ -57,12 +59,12 @@ body {
     color: var(--primary-color);
     position: fixed;
     top: 40vh;
-    right: 15vw;
+    right: 8vw;
     text-align: start;
     transform: translate(-50%, -50%);
     transition: transform 0.1s ease;
     /* box-shadow: 0 4px 8px rgba(0,0,0,0.2); */
-    z-index: 0;
+    z-index: -1;
     user-select: none;
     visibility: var(--follower-state);
 }
@@ -73,8 +75,7 @@ body {
     text-align: center;
     align-items: center;
     justify-content: center;
-    opacity: 0;
-    animation: fadeIn 2s forwards;
+    /* opacity: 0; */
     width: var(--content-width);
     margin-top: var(--content-margin-ver);
     margin-bottom: var(--content-margin-ver);
@@ -83,8 +84,7 @@ body {
 .contenter {
     display: flex;
     flex-direction: column;
-    opacity: 0;
-    animation: fadeIn 2s forwards;
+    /* opacity: 0; */
     text-align: justify;
     align-self: flex-start;
     width: var(--content-width);
@@ -157,9 +157,16 @@ body {
     padding-right: var(--content-padding-hor);
     padding-top: var(--content-padding-ver);
     padding-bottom: var(--content-padding-ver);
-    background: var(--tertiary-color);
+    background: var(--tertiary-color-opacity);
     border: 0px solid var(--text-color);
     border-radius: 80px;
+    transition: all var(--shift-duration) ease;
+    /* backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); для Safari */
+}
+
+.piss:hover {
+    background: var(--tertiary-color);
 }
 
 button {
@@ -261,17 +268,21 @@ button:hover {
     flex-direction: column;
     text-decoration: none;
     color: var(--text-color);
-    transition: transform var(--shift-duration) ease;
+    transition: all var(--shift-duration) ease;
     margin-top: var(--content-margin-ver);
     margin-bottom: var(--content-margin-ver);
     padding-left: var(--content-padding-hor);
     padding-right: var(--content-padding-hor);
     padding-top: var(--content-padding-ver);
     padding-bottom: var(--content-padding-ver);
-    background: var(--tertiary-color);
+    background: var(--tertiary-color-opacity);
     border: 0px solid var(--text-color);
     border-radius: 80px;
     width: 100%;
+}
+
+.listing:hover {
+    background: var(--tertiary-color);
 }
 
 .listing table {
