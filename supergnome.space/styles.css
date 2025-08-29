@@ -202,7 +202,6 @@ button:hover {
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: calc(var(--content-padding-ver) / 2);
 }
 
 .gallery-item {
