@@ -364,7 +364,7 @@ button:hover {
     --content-width: 85%;
     }
     :root {
-        --default-text-size: 1.33rem;
+        --default-text-size: 1.425rem;
     }
     :root {
         --content-padding-hor: 4vw;
@@ -382,7 +382,7 @@ button:hover {
         --content-width: 95%;
     }
     :root {
-        --default-text-size: 1.2rem;
+        --default-text-size: 1.275rem;
     }
     :root {
         --content-padding-hor: 6vw;
@@ -392,6 +392,12 @@ button:hover {
     }
     :root { 
         --follower-state: hidden;
+    }
+}
+
+@media (max-width: 800px) {
+    :root {
+        --default-text-size: 1.15rem;
     }
 }
 
