@@ -3,6 +3,7 @@
     /* Основные цвета темы */
     --primary-color: #e6e6fa; /* Лаванда */
     --secondary-color: #c5d0e6; /* Барвинок */
+    --secondary-color-opacity: #c5d0e688;
     --tertiary-color: #f8f4ff; /* Магнолия */
     --tertiary-color-opacity: #f8f4ffd0;
     --quaternary-color: #f7f21a; /* Цвет детской неожиданности */
@@ -144,6 +145,9 @@ body {
     color: var(--text-color-hover);
     text-align: center;
     opacity: 0.8;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
 .piss {
@@ -244,8 +248,8 @@ button:hover {
 }
 
 .modal-content {
-    /* background-color: var(--text-color-opacity); */
-    background-color: transparent;
+    background-color: var(--secondary-color-opacity);
+    /* background-color: transparent; */
     margin: 10vh auto;
     border: 0px none;
     border-radius: 80px;
